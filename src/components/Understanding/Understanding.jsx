@@ -1,12 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-function Support(){
+function Understanding() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [understanding, setUnderstanding] = useState('');
 
-    return (
-        <div>
-            <h1> Support</h1>
-        </div>
-    );
+  const handleNext = () => {
+    dispatch({ type: 'SET_UNDERSTANDING', payload: understanding });
+    history.push('/support');
+  };
+
+  return (
+    <div>
+      <h1>How well are you understanding the content?</h1>
+      <input
+        data-testid="input"
+        type="number"
+        value={understanding}
+        placeholder="Scale 1 to 5"
+        onChange={(e) => setUnderstanding(e.target.value)}
+      />
+      <button data-testid="next" onClick={handleNext}>Next</button>
+    </div>
+  );
 }
-export default Support;
+
+export default Understanding;
