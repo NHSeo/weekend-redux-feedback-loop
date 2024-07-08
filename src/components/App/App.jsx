@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 import Feeling from '../Feeling/Feeling';
 import Review from '../Review/Review';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
+import ThankYou from '../Thankyou/Thankyou';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/support" component={Support} />
         <Route path="/comments" component={Comments} />
         <Route path="/review" component={Review} />
+        <Route path="/thank-you" component={ThankYou} />
+        <Redirect to="/" />
       </Router>
     </div>
   );

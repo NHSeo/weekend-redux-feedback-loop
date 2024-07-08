@@ -12,7 +12,7 @@ function Review() {
     axios.post('/api/feedback', feedback)
       .then(response => {
         dispatch({ type: 'RESET_FEEDBACK' });
-        history.push('/');
+        history.push('/thank-you');
       })
       .catch(error => {
         console.error('Error Feedback', error);
